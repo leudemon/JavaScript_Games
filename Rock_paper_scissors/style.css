@@ -16,6 +16,15 @@ img {
 }
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  background-image: url("https://media.giphy.com/media/MTclfCr4tVgis/giphy.gif");
+  background-repeat: no-repeat;
+  background-size:cover;
+  min-height: 100vh;
+  min-width: 100vh;
   font-family: "Inter", sans-serif;
   font-size: 16px;
 }
@@ -23,8 +32,71 @@ body {
 input,
 button {
   font-family: inherit;
+  border-radius: 10px;
+  border: none;
+  padding: .5em;
+  background-color: white;
+  box-shadow: 0px 0px 11px .05px rgba(0, 0, 0, 0.473);
+  width: 5rem;
+}
+span{
+  font-weight: lighter;
+  
 }
 
 p {
   line-height: 1.8;
+}
+.versus{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.bodyGame{
+  display: grid;
+  grid-row-gap: 5rem;  
+  grid-template-columns: 4;
+  padding: 5%;
+  border-radius: 10px;
+  max-width: 75%;
+  min-width: 50%;
+  
+}
+.grid-item1{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  
+  box-shadow: 0px 0px 12px .05px rgba(0, 0, 0, 0.473);
+}
+.grid-item2{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+  justify-content: space-evenly;
+  
+}
+.grid-item3{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.grid-item4{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.user-div span{
+  display: block;
+}
+.computer-div span{
+  display: block;
+}
+.result-div span{
+  display: block;
+  text-align: center;
 }
