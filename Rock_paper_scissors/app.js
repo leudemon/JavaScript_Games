@@ -11,6 +11,18 @@ const background = document.getElementById('main-body')
 let user_choice
 let computer_choice
 let gotresult
+let chosenItem_user
+let chosenItem_pc
+
+const imgRock = '<img src="/assets/rock.png">'
+const imgPaper = '<img src="/assets/paper.png">'
+const imgScissors= '<img src="/assets/scissors.png">'
+
+const items = {
+    Rock: imgRock,
+    Paper: imgPaper,
+    Scissors: imgScissors
+}
 
 background.style.backgroundImage = "none"
 
@@ -25,19 +37,40 @@ let scores = {
 }
 
 choices.forEach(choice => choice.addEventListener("click", (e) => {
+    
+    //User's choice
     user_choice = e.target.id
-    userChoiceDisplay.innerHTML = user_choice
+    chosenItem_user = items[user_choice]
+    console.log(chosenItem_user);
+    userChoiceDisplay.innerHTML = chosenItem_user
+    
+    //Computer's choice
     computer_choice = getRandomChoice()
-    computerChoiceDisplay.innerHTML = computer_choice
+    
+    chosenItem_pc = items[computer_choice]
+    console.log(computer_choice)
+    computerChoiceDisplay.innerHTML = chosenItem_pc
+
+    //Display results
     gotresult = getResult(user_choice, computer_choice)
     resultDisplay.innerHTML = gotresult
     console.log(gotresult)
-    console.log(getScores(scores))
+    getScores(scores)
     console.log("pc: " + scores.pc + " | " + "user :" + scores.user)
     
 
 
 }))
+
+
+getKeyByValue = (object, value)=>{
+    for (let prop in object){
+        if (object.hasOwnProperty(prop)){
+            if (object[prop] === value)
+            return prop
+        }
+    }
+}
 
 const getRandomChoice = () => {
     let randomNumber = Math.floor(Math.random() * choices.length) + 1
