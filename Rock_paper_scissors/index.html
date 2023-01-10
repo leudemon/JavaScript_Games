@@ -13,24 +13,29 @@
 <body id="main-body">
     <div id="gamesBody"class="bodyGame">
         <div id="griditem1" class="grid-item1">
-            <div class="versus">
+            <section id = "versus" class="versus show">
                  <div class="user-div"><h1 class="user-h1">USER<span id="userChoice"></span></h1></div>
                  <div class="computer-div"><h1 class="pc-h1">COMP<span id="computerChoice"></span></h1></div>
+            </section>
+            <div id = "ver" class="versus show">
+                 <div class="user-div"><h1 class="lets-play">Let's play shall we?</h1></div>
+                 
             </div>
+
 
             <div class="result-div"><h1><span id="result"></spanid>😁</h1></div>
         </div>
    
         <div class="grid-item2">
-            <button id="Rock"><img  id="Rock" src="assets/rock.png"></button>
+            <button id="Rock" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img  id="Rock" alt="Rock" src="assets/rock.png"></button>
             
         </div>
         <div class="grid-item3">
-            <button id="Paper"><img id="Paper" src="assets/paper.png"></button>
+            <button id="Paper" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img  id="Paper" alt="Paper" src="assets/paper.png"></button>
             
         </div>
         <div class="grid-item4">
-            <button id="Scissors"><img id="Scissors" src="assets/scissors.png"></button>
+            <button id="Scissors" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img id="Scissors" alt="Scissors" src="assets/scissors.png"></button>
         </div>
    </div>
     
