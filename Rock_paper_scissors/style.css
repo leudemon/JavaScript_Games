@@ -20,7 +20,6 @@ body {
   align-items: center;
   justify-content: center;
   background-color: white;
-  background-image: url("https://media.giphy.com/media/MTclfCr4tVgis/giphy.gif");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -28,7 +27,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
 }
-img{
+img {
   max-width: 70px;
   max-height: 80px;
 }
@@ -42,30 +41,30 @@ button {
   outline: none;
   border-width: 0;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
-  width:  clamp(50px, 1rem, 200px);
+  width: clamp(50px, 1rem, 200px);
   transition: 1ms;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-button:hover{
+button:hover {
   transform: scale(1.1);
 }
 span {
   font-weight: lighter;
   text-align: center;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 p {
   line-height: 1.8;
 }
-.show{
+.show {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-.hide{
-  display:none
+.hide {
+  display: none;
 }
 .bodyGame {
   display: grid;
@@ -73,17 +72,17 @@ p {
   grid-template-columns: 4;
   padding: 5%;
   border-radius: 10px;
-  width: clamp(500px, 40%, 70%);
+  width: clamp(100%, 35%, 60%);
   max-width: 75%;
-  min-width: 50%;
+  min-width: auto;
 }
 .grid-item1 {
-  width: clamp(100%, 40%, 70%);
+  width: clamp(100%, 20%, 70%);
   grid-column-start: 1;
   grid-column-end: 4;
   background-color: white;
   border-radius: 10px;
-  padding: 2rem ;
+  padding: 2rem;
   margin: auto;
   outline: none;
   border-width: 0;
@@ -118,21 +117,57 @@ p {
   text-align: center;
 }
 
-.pc-h1{
-  text-align: end;
-  justify-content: end;
+.pc-h1 {
+  position: sticky;
 }
-.user-h1{
-  text-align: start;
+.user-h1 {
+  position: sticky;
 }
-section{
+section {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
-  margin: 0rem clamp(1rem, -1rem, 0rem);
+  margin: 0rem clamp(1rem, 1rem, 1rem);
 }
 
-div, .versus{
+div,
+.versus {
   margin: auto;
   text-align: center;
+}
+.score-pc {
+  border-radius: 10px;
+  border: none;
+  padding: 0.5em;
+  background-color: white;
+  outline: none;
+  border-width: 0;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+  width: clamp(110px, 1rem, 200px);
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+.score-user {
+  border-radius: 10px;
+  border: none;
+  padding: 0.5em;
+  background-color: white;
+  outline: none;
+  border-width: 0;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+  width: clamp(110px, 1rem, 200px);
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.score-pc,
+.score-user,
+span {
+  display: block;
+  font-size: medium;
+}
+.score-pc,
+.score-user,
+h1 {
+  display: block;
+  font-size: large;
 }

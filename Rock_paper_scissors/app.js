@@ -4,27 +4,37 @@ let gotresult
 let chosenItem_user
 let chosenItem_pc
 let winner
-let playground 
-let background 
+let playground
+let background
 
 const computerChoiceDisplay = document.getElementById("computerChoice")
 const userChoiceDisplay = document.getElementById("userChoice")
 const resultDisplay = document.getElementById("result")
 const choices = document.querySelectorAll("button")
 const mainBackground = document.getElementById("main-body")
-const buttonOn = document.addEventListener("onclick",()=>console.log("button on"))
+const buttonOn = document.addEventListener("onclick", () => console.log("button on"))
 const buttonOff = document.addEventListener("Mouse leave", () => console.log("button off"))
 const versus = document.getElementById("versus")
 const subVersus = document.getElementById("ver")
+const userScore = document.getElementById("score-user-span")
+const pcScore = document.getElementById("score-pc-span")
+const panel = document.getElementById("griditem1")
+const controlPanel = document.querySelectorAll(".controlPanel")
+
 const imgRock = '<img src="/assets/rock.png">'
 const imgPaper = '<img src="/assets/paper.png">'
 const imgScissors = '<img src="/assets/scissors.png">'
 
+
 mainBackground.style.backgroundImage = "none"
 
 
-window.onload = ()=>{
+window.onload = () => {
+    controlPanel.forEach((e) => e.classList.replace("hide", "controlPanel"))
+
+    subVersus.classList.replace("hide", "show")
     versus.classList.replace("show", "hide")
+    panel.classList.replace("hide", "grid-item1")
     console.log("hey")
 }
 
@@ -94,7 +104,10 @@ choices.forEach(choice => choice.addEventListener("click", (e) => {
     gotresult = getResult(user_choice, computer_choice)
     resultDisplay.innerHTML = gotresult
     getScores(scores)
+
     console.log("pc: " + scores.pc + " | " + "user :" + scores.user)
+    userScore.innerHTML = scores.user
+    pcScore.innerHTML = scores.pc
 
 
 
@@ -128,40 +141,47 @@ const getRandomChoice = () => {
 const getResult = (user_choice, computer_choice) => {
     let sad = getRandomValue(Object.keys(sad_emojies))
     let happy = getRandomValue(Object.keys(happy_emojies))
-    if (user_choice === computer_choice) { 
-        winner = "" 
-        return "😐" }
-    if ((user_choice === "Rock") && (computer_choice === "Paper")) { 
+    if (user_choice === computer_choice) {
+        winner = ""
+        return "😐"
+    }
+    if ((user_choice === "Rock") && (computer_choice === "Paper")) {
         winner = "pc"
-        return sad_emojies[sad] }
-    if ((user_choice === "Rock") && (computer_choice === "Scissors")) { 
+        return sad_emojies[sad]
+    }
+    if ((user_choice === "Rock") && (computer_choice === "Scissors")) {
         winner = "user"
-        return happy_emojies[happy] }
-    if ((user_choice === "Scissors") && (computer_choice === "Rock")) { 
+        return happy_emojies[happy]
+    }
+    if ((user_choice === "Scissors") && (computer_choice === "Rock")) {
         winner = "pc"
-        return sad_emojies[sad] }
-    if ((user_choice === "Paper") && (computer_choice === "Rock")) { 
+        return sad_emojies[sad]
+    }
+    if ((user_choice === "Paper") && (computer_choice === "Rock")) {
         winner = "user"
-        return happy_emojies[happy] }
-    if ((user_choice === "Paper") && (computer_choice === "Scissors")) { 
+        return happy_emojies[happy]
+    }
+    if ((user_choice === "Paper") && (computer_choice === "Scissors")) {
         winner = "pc"
-        return sad_emojies[sad] }
-    if ((user_choice === "Scissors") && (computer_choice === "Paper")) { 
+        return sad_emojies[sad]
+    }
+    if ((user_choice === "Scissors") && (computer_choice === "Paper")) {
         winner = "user"
-        return happy_emojies[happy] }
+        return happy_emojies[happy]
+    }
     else {
         return undefined
     }
 
 }
 
-const button_color_change = ()=>{
-    if (winner === "user"){
+const button_color_change = () => {
+    if (winner === "user") {
         background.style.backgroundColor = "#00ff00"
-    }else if (winner === "pc"){
+    } else if (winner === "pc") {
         background.style.backgroundColor = "#ff0000"
     }
-    else{
+    else {
         background.style.backgroundColor = "#ffffff"
     }
 }
@@ -180,12 +200,12 @@ const getScores = (scores) => {
         case "pc":
             scores.pc++
             playground.style.backgroundColor = "#ff0000"
-            
+
             break
         case "user":
             scores.user++
             playground.style.backgroundColor = "#00ff00"
-            
+
             break
         default:
             playground.style.backgroundColor = "#ffffff"
@@ -193,15 +213,28 @@ const getScores = (scores) => {
     }
 
     if (scores.pc === 5) {
-        scores.pc = 0
-        scores.user = 0
-        alert("That's a Loss! try again?")
-        location.reload()
+        scores.pc = 5
+        setTimeout(() => window.location.reload(), 4000);
+        subVersus.classList.replace("hide", "show")
+        versus.classList.replace("show", "hide")
+        subVersus.innerText = "That's a Loss! try again?"
+        panel.classList.replace("grid-item1", "hide")
+        controlPanel.forEach((e) => e.classList.replace("controlPanel", "hide"))
+        // setTimeout(alert, 3000,"That's a Loss! try again?" )
+        // alert("")
+
     }
     if (scores.user === 5) {
-        scores.pc = 0
-        scores.user = 0
-        alert("Good Job, You Won!")
-        location.reload()
+        scores.user = 5
+        mainBackground.style.backgroundImage = 'url("https://i.gifer.com/4M57.gif")'
+        setTimeout(() => window.location.reload(), 4000);
+        subVersus.classList.replace("hide", "show")
+        versus.classList.replace("show", "hide")
+        let h2 = document.createElement('h2')
+        panel.classList.replace("grid-item1", "hide")
+        controlPanel.forEach((e) => e.classList.replace("controlPanel", "hide"))
+        // setTimeout(alert, 5000, "Good Job, You Won!")
+        // alert()
+
     }
 }

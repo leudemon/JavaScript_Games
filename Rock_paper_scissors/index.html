@@ -1,43 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="app.js" ></script>
+    <script defer src="app.js"></script>
     <link href="style.css" rel="stylesheet">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="shortcut icon" href="#">
     <title>Rock-Paper-Scissors</title>
 </head>
+
 <body id="main-body">
-    <div id="gamesBody"class="bodyGame">
-        <div id="griditem1" class="grid-item1">
-            <section id = "versus" class="versus show">
-                 <div class="user-div"><h1 class="user-h1">USER<span id="userChoice"></span></h1></div>
-                 <div class="computer-div"><h1 class="pc-h1">COMP<span id="computerChoice"></span></h1></div>
+
+    <div id="gamesBody" class="bodyGame">
+
+        <div class="score-user">
+            <div>
+                <h1>user<span id="score-user-span"></span></h1>
+            </div>
+        </div>
+
+        <div class="score-pc">
+            <div>
+                <h1>comp<span id="score-pc-span"></span></h1>
+            </div>
+        </div>
+
+        <div id="griditem1" class="grid-item1 hide">
+            <section id="versus" class="versus show">
+                <div class="user-div">
+                    <h1 class="user-h1">USER<span id="userChoice"></span></h1>
+                </div>
+                <div class="computer-div">
+                    <h1 class="pc-h1">COMP<span id="computerChoice"></span></h1>
+                </div>
             </section>
-            <div id = "ver" class="versus show">
-                 <div class="user-div"><h1 class="lets-play">Let's play shall we?</h1></div>
-                 
+            <div id="ver" class="versus show">
+                <div class="user-div">
+                    <h1 id="ver" class="lets-play">Let's play shall we?</h1>
+                </div>
+
             </div>
 
 
-            <div class="result-div"><h1><span id="result"></spanid>😁</h1></div>
+            <div class="result-div">
+                <h1><span id="result"></spanid>😁</h1>
+            </div>
         </div>
-   
-        <div class="grid-item2">
-            <button id="Rock" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img  id="Rock" alt="Rock" src="assets/rock.png"></button>
-            
+
+        <div class="grid-item2 controlPanel">
+            <button id="Rock" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'"
+                onmouseleave="this.style.backgroundColor='white'"><img id="Rock" alt="Rock"
+                    src="assets/rock.png"></button>
+
         </div>
-        <div class="grid-item3">
-            <button id="Paper" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img  id="Paper" alt="Paper" src="assets/paper.png"></button>
-            
+        <div class="grid-item3 controlPanel">
+            <button id="Paper" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'"
+                onmouseleave="this.style.backgroundColor='white'"><img id="Paper" alt="Paper"
+                    src="assets/paper.png"></button>
+
         </div>
-        <div class="grid-item4">
-            <button id="Scissors" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'" onmouseleave="this.style.backgroundColor='white'"><img id="Scissors" alt="Scissors" src="assets/scissors.png"></button>
+        <div class="grid-item4 controlPanel">
+            <button id="Scissors" class="btn" onmouseover="this.style.backgroundColor='#9B9A9A1C'"
+                onmouseleave="this.style.backgroundColor='white'"><img id="Scissors" alt="Scissors"
+                    src="assets/scissors.png"></button>
         </div>
-   </div>
-    
+    </div>
+
 </body>
+
 </html>
