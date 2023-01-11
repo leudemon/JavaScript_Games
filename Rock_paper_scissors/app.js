@@ -199,16 +199,22 @@ const getScores = (scores) => {
     switch (winner) {
         case "pc":
             scores.pc++
-            playground.style.backgroundColor = "#ff0000"
+            playground.style.backgroundColor = "#FF0000C2"
+            mainBackground.style.backgroundColor = "#FF000036"
+            setTimeout(() => mainBackground.style.backgroundColor = "#ffffff", 400)
+            setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
 
             break
         case "user":
             scores.user++
-            playground.style.backgroundColor = "#00ff00"
-
+            playground.style.backgroundColor = "#00FF009F"
+            mainBackground.style.backgroundColor = "#00FF004B"
+            setTimeout(() => mainBackground.style.backgroundColor = "#ffffff", 400)
+            setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
             break
         default:
-            playground.style.backgroundColor = "#ffffff"
+            playground.style.backgroundColor = "#ffffff83"
+            mainBackground.style.backgroundColor = "#ffffff"
             break;
     }
 
