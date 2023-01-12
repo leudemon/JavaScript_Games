@@ -26,14 +26,14 @@
 @keyframes playground {
     0%{
     opacity: 1;
-    transform: scale(1);
+    transform: scale(0);
   }
   50%{
     opacity: 0.5;
   }
   100%{
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1);
   }
   
 }
@@ -135,7 +135,7 @@ p {
   box-shadow: 0px 0px 12px 0.05px rgba(0, 0, 0, 0.473);
   max-height: 220px;
   min-height: 220px;
-  animation: playground 1s ease-in-out alternate 5;
+  animation: playground 1s ease-in-out;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -182,8 +182,7 @@ section {
 }
 
 
-.versus-ver {
-  background-color: red;  
+.versus-ver {  
   text-align: center;
   
 }
@@ -358,9 +357,7 @@ section {
 
 
 .versus{
-  display: flex;
-  width: 80%;
-  justify-content:space-evenly;
+  justify-content:space-between;
 }
 
 .score-pc {
