@@ -21,6 +21,7 @@ const pcScore = document.getElementById("score-pc-span")
 const panel = document.getElementById("griditem1")
 const controlPanel = document.querySelectorAll(".controlPanel")
 
+
 const imgRock = '<img src="/assets/rock.png">'
 const imgPaper = '<img src="/assets/paper.png">'
 const imgScissors = '<img src="/assets/scissors.png">'
@@ -31,7 +32,6 @@ mainBackground.style.backgroundImage = "none"
 
 window.onload = () => {
     controlPanel.forEach((e) => e.classList.replace("hide", "controlPanel"))
-
     subVersus.classList.replace("hide", "show")
     versus.classList.replace("show", "hide")
     panel.classList.replace("hide", "grid-item1")
@@ -78,7 +78,12 @@ let scores = {
 
     }
 }
-
+window.addEventListener("load", ()=>{
+    setTimeout(function () {
+        // This hides the address bar:
+        window.scrollTo(0, 1);
+    }, 1);
+});
 
 
 choices.forEach(choice => choice.addEventListener("click", (e) => {
@@ -99,6 +104,7 @@ choices.forEach(choice => choice.addEventListener("click", (e) => {
     chosenItem_pc = items[computer_choice]
     console.log(computer_choice)
     computerChoiceDisplay.innerHTML = chosenItem_pc
+    computerChoiceDisplay.style
 
     //Display results
     gotresult = getResult(user_choice, computer_choice)
@@ -199,28 +205,28 @@ const getScores = (scores) => {
     switch (winner) {
         case "pc":
             scores.pc++
-            playground.style.backgroundColor = "#FF0000C2"
+            // playground.style.backgroundColor = "#FF0000C2"
             mainBackground.style.backgroundColor = "#FF000036"
             setTimeout(() => mainBackground.style.backgroundColor = "#ffffff", 400)
-            setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
+            // setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
 
             break
         case "user":
             scores.user++
-            playground.style.backgroundColor = "#00FF009F"
+            // playground.style.backgroundColor = "#00FF009F"
             mainBackground.style.backgroundColor = "#00FF004B"
             setTimeout(() => mainBackground.style.backgroundColor = "#ffffff", 400)
-            setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
+            // setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
             break
         default:
-            playground.style.backgroundColor = "#ffffff83"
+            playground.style.backgroundColor = "#FFFFFF00"
             mainBackground.style.backgroundColor = "#ffffff"
             break;
     }
 
     if (scores.pc === 5) {
         scores.pc = 5
-        setTimeout(() => window.location.reload(), 4000);
+        setTimeout(() => window.location.reload(), 2000);
         subVersus.classList.replace("hide", "show")
         versus.classList.replace("show", "hide")
         subVersus.innerText = "That's a Loss! try again?"
@@ -232,8 +238,8 @@ const getScores = (scores) => {
     }
     if (scores.user === 5) {
         scores.user = 5
-        mainBackground.style.backgroundImage = 'url("https://i.gifer.com/4M57.gif")'
-        setTimeout(() => window.location.reload(), 4000);
+        mainBackground.style.backgroundImage = 'url("assets/fireworks.gif")'
+        setTimeout(() => window.location.reload(), 2000);
         subVersus.classList.replace("hide", "show")
         versus.classList.replace("show", "hide")
         let h2 = document.createElement('h2')
@@ -244,3 +250,19 @@ const getScores = (scores) => {
 
     }
 }
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+        } else {
+            entry.target.classList.remove('show')
+        }
+    });
+});
+
+
+const hiddenElements = document.querySelectorAll('.hidden')
+hiddenElements.forEach((el) => observer.observe(el))
