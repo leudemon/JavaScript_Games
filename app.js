@@ -20,7 +20,9 @@ const userScore = document.getElementById("score-user-span")
 const pcScore = document.getElementById("score-pc-span")
 const panel = document.getElementById("griditem1")
 const controlPanel = document.querySelectorAll(".controlPanel")
-
+const userScoreSpan = document.getElementById("score-user-span")
+const pcScoreSpan = document.getElementById("score-pc-span")
+const reactionSpan = document.getElementById("result")
 
 const imgRock = '<img src="/assets/rock.png">'
 const imgPaper = '<img src="/assets/paper.png">'
@@ -31,12 +33,20 @@ mainBackground.style.backgroundImage = "none"
 
 
 window.onload = () => {
+    
+    userScoreSpan.innerText = "YOU"
+    pcScoreSpan.innerText = "PC"
+    setTimeout(()=>userScoreSpan.innerText="0", 3000)
+    setTimeout(() => reactionSpan.innerText = "VS", 100)
+    setTimeout(() => reactionSpan.innerText = "", 3000)
+    setTimeout(() => pcScoreSpan.innerText = "0", 3000)
     controlPanel.forEach((e) => e.classList.replace("hide", "controlPanel"))
     subVersus.classList.replace("hide", "show")
     versus.classList.replace("show", "hide")
     panel.classList.replace("hide", "grid-item1")
     console.log("hey")
 }
+
 
 const items = {
     Rock: imgRock,
@@ -85,10 +95,16 @@ window.addEventListener("load", ()=>{
     }, 1);
 });
 
+const userDisplayAnimation = () => {
+    userChoiceDisplay.classList.add("animated-choice-user-on")
+}
+const pcDisplayAnimation = () => {
+    computerChoiceDisplay.classList.add("animated-choice-pc-on")
+}
 
 choices.forEach(choice => choice.addEventListener("click", (e) => {
     background = document.getElementById(e.target.id)
-
+    
     //after window loads show versus
     versus.classList.replace("hide", "show")
     subVersus.classList.replace("show", "hide")
@@ -104,7 +120,10 @@ choices.forEach(choice => choice.addEventListener("click", (e) => {
     chosenItem_pc = items[computer_choice]
     console.log(computer_choice)
     computerChoiceDisplay.innerHTML = chosenItem_pc
-    computerChoiceDisplay.style
+
+    userDisplayAnimation()
+    pcDisplayAnimation()
+    
 
     //Display results
     gotresult = getResult(user_choice, computer_choice)
@@ -144,6 +163,17 @@ const getRandomChoice = () => {
     }
 }
 
+const emojiBounce = ()=>{
+    resultDisplay.classList.add("animated-bounce")
+    setTimeout(() => resultDisplay.classList.remove("animated-bounce"), 1000)
+}
+const emojiShake = () => {
+    resultDisplay.classList.add("animated-shake")
+    setTimeout(() => resultDisplay.classList.remove("animated-shake"), 1000)
+}
+
+
+
 const getResult = (user_choice, computer_choice) => {
     let sad = getRandomValue(Object.keys(sad_emojies))
     let happy = getRandomValue(Object.keys(happy_emojies))
@@ -152,32 +182,40 @@ const getResult = (user_choice, computer_choice) => {
         return "😐"
     }
     if ((user_choice === "Rock") && (computer_choice === "Paper")) {
+        emojiShake()
         winner = "pc"
         return sad_emojies[sad]
     }
     if ((user_choice === "Rock") && (computer_choice === "Scissors")) {
+        emojiBounce()
         winner = "user"
         return happy_emojies[happy]
     }
     if ((user_choice === "Scissors") && (computer_choice === "Rock")) {
+        emojiShake()
         winner = "pc"
         return sad_emojies[sad]
     }
     if ((user_choice === "Paper") && (computer_choice === "Rock")) {
+        emojiBounce()
         winner = "user"
         return happy_emojies[happy]
     }
-    if ((user_choice === "Paper") && (computer_choice === "Scissors")) {
+    if ((user_choice === "Paper") && (computer_choice === "Scissors")) {   
+        emojiShake()     
         winner = "pc"
         return sad_emojies[sad]
     }
     if ((user_choice === "Scissors") && (computer_choice === "Paper")) {
+        emojiBounce()
         winner = "user"
         return happy_emojies[happy]
     }
+
     else {
         return undefined
     }
+
 
 }
 
@@ -188,7 +226,7 @@ const button_color_change = () => {
         background.style.backgroundColor = "#ff0000"
     }
     else {
-        background.style.backgroundColor = "#ffffff"
+        background.style.backgroundColor = "#FFFFFF00"
     }
 }
 
@@ -206,7 +244,7 @@ const getScores = (scores) => {
         case "pc":
             scores.pc++
             // playground.style.backgroundColor = "#FF0000C2"
-            mainBackground.style.backgroundColor = "#FF000036"
+            mainBackground.style.backgroundColor = "#FF000088"
             setTimeout(() => mainBackground.style.backgroundColor = "#ffffff", 400)
             // setTimeout(() => playground.style.backgroundColor = "#FFffff", 2000)
 
@@ -250,19 +288,3 @@ const getScores = (scores) => {
 
     }
 }
-
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        console.log(entry)
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show')
-        } else {
-            entry.target.classList.remove('show')
-        }
-    });
-});
-
-
-const hiddenElements = document.querySelectorAll('.hidden')
-hiddenElements.forEach((el) => observer.observe(el))
