@@ -189,10 +189,9 @@
     grid-template-columns: 4;
     height: 100vh;
     border-radius: 10px;
-    width: clamp(100%, 35%, 60%);
+    width: 50%;
   }
   .grid-item1 {
-    width: clamp(80%, 20%, 70%);
     grid-column-start: 1;
     grid-column-end: 4;
     background-color: white;
@@ -352,8 +351,7 @@ p {
   grid-row-gap: 10rem;
   grid-template-columns: 4;
   border-radius: 10px;
-  width: clamp(100%, 35%, 60%);
-  min-width: auto;
+  width: 100%;
   height: 100vh;
 }
 .grid-item1 {
