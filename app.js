@@ -219,20 +219,6 @@ const getResult = (user_choice, computer_choice) => {
 
 }
 
-const button_color_change = () => {
-    if (winner === "user") {
-        background.style.backgroundColor = "#00ff00"
-    } else if (winner === "pc") {
-        background.style.backgroundColor = "#ff0000"
-    }
-    else {
-        background.style.backgroundColor = "#FFFFFF00"
-    }
-}
-
-const button_color_reset = () => {
-    // background.style.backgroundColor = "#ffffff"
-}
 
 
 

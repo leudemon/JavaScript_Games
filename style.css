@@ -11,13 +11,13 @@
   transform: scalex(-1);
 }
 .animated-choice-user-on{
-  animation: animate-choice-user-on .3s ease-in-out .1s 1 alternate forwards;  
+  animation: animate-choice-user-on .5s ease-in-out .1s 1 alternate forwards;  
 }
 .animated-choice-user-off{
   animation: animate-choice-user-off 1s ease-in-out 1s 1 alternate forwards;  
 }
 .animated-choice-pc-on{
-  animation: animate-choice-pc-on .3s ease-in-out .1s 1 alternate forwards;
+  animation: animate-choice-pc-on .5s ease-in-out .1s 1 alternate forwards;
 }
 
 @keyframes animate-bounce {
