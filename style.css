@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 .animated-bounce{
-  animation: animate-bounce .1s ease-in-out .1s 3 alternate;
+  animation: animate-bounce .18s ease-in-out .2s 4 alternate forwards;
 }
 .animated-shake{
   animation: animate-shake .1s ease-in-out .1s 3 alternate;
