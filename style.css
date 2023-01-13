@@ -10,6 +10,9 @@
   opacity: 0;
   transform: scalex(-1);
 }
+#computerChoice{
+  opacity: 0;
+}
 .animated-choice-user-on{
   animation: animate-choice-user-on .5s ease-in-out .1s 1 alternate forwards;  
 }
