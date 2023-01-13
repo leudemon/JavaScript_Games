@@ -22,10 +22,10 @@
 
 @keyframes animate-bounce {
   from{
-    transform: scale(1);
+    transform: scale(1.4);
   }
   to{
-    transform: scale(1.1);
+    transform: scale(1.7);
     transform-origin: center center ;
   }
   
