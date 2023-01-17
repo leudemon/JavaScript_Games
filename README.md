@@ -1,6 +1,6 @@
 ﻿# JavaScript_Games_series 1
- ##intro
+ ## intro
  
  this is a rock paper scissors game i made from Javascript, Html and css. 
- it's deployed and you can check it out on [avit.netlify.com]
- __ please feel free to give me your feedback!__
+ it's deployed and you can check it out on [avit.netlify.com <br>
+ _ please feel free to give me your feedback!_
