@@ -3,4 +3,4 @@
  
  this is a rock paper scissors game i made from Javascript, Html and css. 
  it's deployed and you can check it out on [avit.netlify.com ]<br>
- __please feel free to give me your feedback! __
+ __please feel free to give me your feedback__
